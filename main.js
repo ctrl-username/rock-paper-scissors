@@ -2,6 +2,7 @@ let humanScore = 0;
 let computerScore;
 let humanSelection;
 let computerSelection;
+
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3);
   if (randomNumber === 0) {
@@ -11,9 +12,17 @@ function getComputerChoice() {
   } else if (randomNumber === 2) {
     computerSelection = "scissors";
   }
-  console.log(randomNumber, computerSelection);
 }
-function getHumanChoice() {}
+
+function getHumanChoice() {
+  humanSelection = prompt(
+    "pick an option between rock, paper or scissors"
+  ).toLowerCase();
+}
+
 function playRound() {}
 
 playRound(humanSelection, computerSelection);
+getHumanChoice();
+getComputerChoice();
+console.log(computerSelection, humanSelection);
