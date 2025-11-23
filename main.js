@@ -1,5 +1,5 @@
 let humanScore = 0;
-let computerScore;
+let computerScore = 0;
 let humanSelection;
 let computerSelection;
 
@@ -20,9 +20,17 @@ function getHumanChoice() {
   ).toLowerCase();
 }
 
-function playRound() {}
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === "rock" && computerChoice === "scissors") {
+    console.log("%cYou win", "font-size:25px");
+    humanScore++;
+  } else if (humanChoice === "scissors" && computerChoice === "rock") {
+    console.log("%cComputer Win, You lose", "font-size:25px");
+    computerScore++;
+  }
+}
 
-playRound(humanSelection, computerSelection);
 getHumanChoice();
 getComputerChoice();
-console.log(computerSelection, humanSelection);
+playRound(humanSelection, computerSelection);
+console.log(computerSelection, humanSelection, humanScore, computerScore);
