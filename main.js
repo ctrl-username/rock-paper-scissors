@@ -21,12 +21,30 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log("%cYou win", "font-size:25px");
-    humanScore++;
-  } else if (humanChoice === "scissors" && computerChoice === "rock") {
+  const playerwin = () => console.log("%cYou win", "font-size:25px");
+  const computerwin = () =>
     console.log("%cComputer Win, You lose", "font-size:25px");
+
+  if (humanChoice === computerChoice) {
+    console.log("it's a tie");
+  } else if (humanChoice === "rock" && computerChoice === "scissors") {
+    humanScore++;
+    playerwin();
+  } else if (humanChoice === "scissors" && computerChoice === "rock") {
     computerScore++;
+    computerwin();
+  } else if (humanChoice === "scissors" && computerChoice === "paper") {
+    humanScore++;
+    playerwin();
+  } else if (humanChoice === "paper" && computerChoice === "scissors") {
+    computerScore++;
+    computerwin();
+  } else if (humanChoice === "paper" && computerChoice === "rock") {
+    humanScore++;
+    playerwin();
+  } else if (humanChoice === "rock" && computerChoice === "paper") {
+    computerScore++;
+    computerwin();
   }
 }
 
