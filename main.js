@@ -5,6 +5,7 @@ let computerSelection;
 
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3);
+  // change to return later
   if (randomNumber === 0) {
     computerSelection = "rock";
   } else if (randomNumber === 1) {
@@ -21,9 +22,20 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  const playerwin = () => console.log("%cYou win", "font-size:25px");
+  const playerwin = () =>
+    console.log(
+      `%cYou win! ${
+        humanChoice[0].toUpperCase() + humanChoice.slice(1)
+      } Beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`,
+      "font-size:25px"
+    );
   const computerwin = () =>
-    console.log("%cComputer Win, You lose", "font-size:25px");
+    console.log(
+      `%cYou lose! ${
+        computerChoice[0].toUpperCase() + computerChoice.slice(1)
+      } Beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`,
+      "font-size:25px"
+    );
 
   if (humanChoice === computerChoice) {
     console.log("it's a tie");
@@ -47,6 +59,8 @@ function playRound(humanChoice, computerChoice) {
     computerwin();
   }
 }
+
+function playGame() {}
 
 getHumanChoice();
 getComputerChoice();
