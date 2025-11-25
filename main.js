@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 function getHumanChoice(roundNumber) {
   return prompt(
-    `pick an option between rock, paper or scissors ${roundNumber}`
+    `pick an option between rock, paper or scissors Round(${roundNumber})`
   ).toLowerCase();
 }
 
