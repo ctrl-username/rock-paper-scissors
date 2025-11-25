@@ -1,17 +1,20 @@
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3);
 
-  if (randomNumber === 0) {
-    return "rock";
-  } else if (randomNumber === 1) {
-    return "paper";
-  } else if (randomNumber === 2) {
-    return "scissors";
+  switch (randomNumber) {
+    case 0:
+      return "rock";
+    case 1:
+      return "paper";
+    case 2:
+      return "scissors";
   }
 }
 
-function getHumanChoice() {
-  return prompt("pick an option between rock, paper or scissors").toLowerCase();
+function getHumanChoice(roundNumber) {
+  return prompt(
+    `pick an option between rock, paper or scissors ${roundNumber}`
+  ).toLowerCase();
 }
 
 function playGame() {
@@ -59,7 +62,7 @@ function playGame() {
   // if
 
   for (let round = 1; round <= 5; round++) {
-    const humanSelection = getHumanChoice();
+    const humanSelection = getHumanChoice(round);
     const computerSelection = getComputerChoice();
     console.log(`%c Round! ${round}`, "font-size:25px");
     console.log(
@@ -69,7 +72,14 @@ function playGame() {
     playRound(humanSelection, computerSelection);
   }
   console.log(
-    `%c Game over! You Scored ${humanScore} and Computer Scored ${computerScore}`,
+    `%c Game over! You Scored ${humanScore} and Computer Scored ${computerScore},
+    ${
+      humanScore > computerScore
+        ? "You win"
+        : computerScore > humanScore
+        ? "You lose"
+        : "It's a Tie"
+    }`,
     "font-size:25px"
   );
 }
