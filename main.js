@@ -91,7 +91,17 @@ let humanScoreUI = document.querySelector("#player-score");
 const rockP = document.querySelector(".rock");
 const paperP = document.querySelector(".paper");
 const scissorsP = document.querySelector(".scissors");
+// add event listener for player buttons
+rockP.addEventListener("click", Rock);
+paperP.addEventListener("click", Paper);
+scissorsP.addEventListener("click", Scissors);
 
-rockP.addEventListener("click");
-paperP.addEventListener("click", () => console.log("paper"));
-scissorsP.addEventListener("click");
+function Rock() {
+  console.log("rock");
+}
+function Paper() {
+  console.log("paper");
+}
+function Scissors() {
+  console.log("scissors");
+}
