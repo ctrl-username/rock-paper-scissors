@@ -5,9 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Rock Paper and Scissors</title>
         <style>
-            .container h1 {
+            .container {
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .container {
+                flex-direction: column;
+            }
+            .container > * {
+                flex: 1;
+                height: 100px;
+            }
+            button {
+                margin-top: 10px;
             }
         </style>
     </head>
@@ -26,6 +38,11 @@
             </div>
 
             <div class="human">
+                <span>To Play click one of the buttons: <br /></span>
+                <button class="rock">Rock</button>
+
+                <button class="paper">Paper</button>
+                <button class="scissors">Scissors</button>
                 <h2>
                     Player 👱🏼 <strong>Score <span>: 0</span></strong>
                 </h2>
