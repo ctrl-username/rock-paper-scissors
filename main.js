@@ -59,7 +59,7 @@ function playGame() {
   }
   // if
 
-  for (let round = 1; round <= 5; round++) {
+  for (let round = 1; round <= 1; round++) {
     const humanSelection = getHumanChoice(round);
     const computerSelection = getComputerChoice();
     console.log(`%c Round! ${round}`, "font-size:25px");
@@ -83,3 +83,15 @@ function playGame() {
 }
 
 playGame();
+// refrence to ui score elements
+let compScoreUI = document.querySelector("#computer-score");
+let humanScoreUI = document.querySelector("#player-score");
+
+// reference to player buttons
+const rockP = document.querySelector(".rock");
+const paperP = document.querySelector(".paper");
+const scissorsP = document.querySelector(".scissors");
+
+rockP.addEventListener("click");
+paperP.addEventListener("click", () => console.log("paper"));
+scissorsP.addEventListener("click");
