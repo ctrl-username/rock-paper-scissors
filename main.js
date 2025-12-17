@@ -12,9 +12,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice(roundNumber) {
-  return prompt(
-    `pick an option between rock, paper or scissors Round(${roundNumber})`
-  ).toLowerCase();
+  return `pick an option between rock, paper or scissors Round(${roundNumber})`.toLowerCase();
 }
 
 function playGame() {
@@ -27,14 +25,14 @@ function playGame() {
         `%cYou win! ${
           humanChoice[0].toUpperCase() + humanChoice.slice(1)
         } Beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`,
-        "font-size:25px"
+        "font-size:25px",
       );
     const computerwin = () =>
       console.log(
         `%cYou lose! ${
           computerChoice[0].toUpperCase() + computerChoice.slice(1)
         } Beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`,
-        "font-size:25px"
+        "font-size:25px",
       );
 
     if (humanChoice == computerChoice) {
@@ -67,7 +65,7 @@ function playGame() {
     console.log(`%c Round! ${round}`, "font-size:25px");
     console.log(
       `%c🧑:${humanSelection},🤖:${computerSelection}`,
-      "font-size:25px;color:gold"
+      "font-size:25px;color:gold",
     );
     playRound(humanSelection, computerSelection);
   }
@@ -77,10 +75,10 @@ function playGame() {
       humanScore > computerScore
         ? "You win"
         : computerScore > humanScore
-        ? "You lose"
-        : "It's a Tie"
+          ? "You lose"
+          : "It's a Tie"
     }`,
-    "font-size:25px"
+    "font-size:25px",
   );
 }
 
