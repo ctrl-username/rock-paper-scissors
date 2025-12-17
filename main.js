@@ -15,7 +15,7 @@ function getHumanChoice(roundNumber) {
   return `pick an option between rock, paper or scissors Round(${roundNumber})`.toLowerCase();
 }
 
-function playGame() {
+function playGame(humanChoiceClick) {
   let humanScore = 0;
   let computerScore = 0;
 
@@ -60,7 +60,7 @@ function playGame() {
   // if
 
   for (let round = 1; round <= 1; round++) {
-    const humanSelection = getHumanChoice(round);
+    const humanSelection = humanChoiceClick;
     const computerSelection = getComputerChoice();
     console.log(`%c Round! ${round}`, "font-size:25px");
     console.log(
@@ -80,9 +80,11 @@ function playGame() {
     }`,
     "font-size:25px",
   );
+  compScoreUI.textContent = computerScore;
+  humanScoreUI.textContent = humanScore;
 }
 
-playGame();
+//playGame();
 // refrence to ui score elements
 let compScoreUI = document.querySelector("#computer-score");
 let humanScoreUI = document.querySelector("#player-score");
@@ -98,10 +100,14 @@ scissorsP.addEventListener("click", Scissors);
 
 function Rock() {
   console.log("rock");
+  playGame("rock");
 }
 function Paper() {
   console.log("paper");
+
+  playGame("paper");
 }
 function Scissors() {
   console.log("scissors");
+  playGame("scissors");
 }
