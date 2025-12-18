@@ -18,6 +18,9 @@ function getHumanChoice(roundNumber) {
 function playGame(humanChoiceClick) {
   let humanScore = 0;
   let computerScore = 0;
+  // reference to score ui for both computer and player
+  let compScoreUI = document.querySelector("#computer-score");
+  let humanScoreUI = document.querySelector("#player-score");
 
   function playRound(humanChoice, computerChoice) {
     const playerwin = () =>
@@ -81,9 +84,6 @@ function playGame(humanChoiceClick) {
     "font-size:25px",
   );
 
-  let compScoreUI = document.querySelector("#computer-score");
-  let humanScoreUI = document.querySelector("#player-score");
-
   compScoreUI.textContent = computerScore;
   humanScoreUI.textContent = humanScore;
 
@@ -97,16 +97,16 @@ function playGame(humanChoiceClick) {
   scissorsP.addEventListener("click", Scissors);
 
   function Rock() {
-    console.log("rock", getComputerChoice());
-    playRound("rock", getComputerChoice);
+    // console.log("rock", getComputerChoice());
+    playRound("rock", getComputerChoice());
   }
   function Paper() {
-    console.log("paper", getComputerChoice());
+    // console.log("paper", getComputerChoice());
 
     playRound("paper", getComputerChoice());
   }
   function Scissors() {
-    console.log("scissors", getComputerChoice());
+    // console.log("scissors", getComputerChoice());
     playRound("scissors", getComputerChoice());
   }
 }
