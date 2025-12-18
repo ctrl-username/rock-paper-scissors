@@ -80,34 +80,36 @@ function playGame(humanChoiceClick) {
     }`,
     "font-size:25px",
   );
+
+  let compScoreUI = document.querySelector("#computer-score");
+  let humanScoreUI = document.querySelector("#player-score");
+
   compScoreUI.textContent = computerScore;
   humanScoreUI.textContent = humanScore;
+
+  // reference to player buttons
+  const rockP = document.querySelector(".rock");
+  const paperP = document.querySelector(".paper");
+  const scissorsP = document.querySelector(".scissors");
+  // add event listener for player buttons
+  rockP.addEventListener("click", Rock);
+  paperP.addEventListener("click", Paper);
+  scissorsP.addEventListener("click", Scissors);
+
+  function Rock() {
+    console.log("rock", getComputerChoice());
+    playRound("rock", getComputerChoice);
+  }
+  function Paper() {
+    console.log("paper", getComputerChoice());
+
+    playRound("paper", getComputerChoice());
+  }
+  function Scissors() {
+    console.log("scissors", getComputerChoice());
+    playRound("scissors", getComputerChoice());
+  }
 }
 
-//playGame();
+playGame();
 // refrence to ui score elements
-let compScoreUI = document.querySelector("#computer-score");
-let humanScoreUI = document.querySelector("#player-score");
-
-// reference to player buttons
-const rockP = document.querySelector(".rock");
-const paperP = document.querySelector(".paper");
-const scissorsP = document.querySelector(".scissors");
-// add event listener for player buttons
-rockP.addEventListener("click", Rock);
-paperP.addEventListener("click", Paper);
-scissorsP.addEventListener("click", Scissors);
-
-function Rock() {
-  console.log("rock");
-  playGame("rock");
-}
-function Paper() {
-  console.log("paper");
-
-  playGame("paper");
-}
-function Scissors() {
-  console.log("scissors");
-  playGame("scissors");
-}
