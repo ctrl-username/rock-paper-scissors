@@ -119,29 +119,6 @@ function playGame(humanChoiceClick) {
     }
   }
 
-  // for (let round = 1; round <= 5; round++) {
-  //   const humanSelection = humanChoiceClick;
-  //   const computerSelection = getComputerChoice();
-
-  //   console.log(`%c Round! ${round}`, "font-size:25px");
-  //   console.log(
-  //     `%c🧑:${humanSelection},🤖:${computerSelection}`,
-  //     "font-size:25px;color:gold",
-  //   );
-  //   playRound(humanSelection, computerSelection);
-  // }
-  // console.log(
-  //   `%c Game over! You Scored ${humanScore} and Computer Scored ${computerScore},
-  //   ${
-  //     humanScore > computerScore
-  //       ? "You win"
-  //       : computerScore > humanScore
-  //         ? "You lose"
-  //         : "It's a Tie"
-  //   }`,
-  //   "font-size:25px",
-  // );
-
   // reference to player buttons
   const rockP = document.querySelector(".rock");
   const paperP = document.querySelector(".paper");
