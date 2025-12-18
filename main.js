@@ -18,7 +18,9 @@ function getHumanChoice(roundNumber) {
 function playGame(humanChoiceClick) {
   let humanScore = 0;
   let computerScore = 0;
-  let Gameround = 1;
+  let Gameround = 0;
+  let gameHistory = document.querySelector(".round-board");
+  console.log(gameHistory);
   // reference to score ui for both computer and player
   let compScoreUI = document.querySelector("#computer-score");
   let humanScoreUI = document.querySelector("#player-score");
@@ -31,6 +33,9 @@ function playGame(humanChoiceClick) {
     roundUI.textContent = `Round: ${Gameround}`;
     const playerwin = () => {
       humanScoreUI.textContent = humanScore;
+      const winHistory = document.createElement("pre");
+      winHistory.textContent = `👱🏼 Picked ${humanChoice}, 🤖 Picked ${computerChoice}  : ${humanChoice} beats  ${computerChoice}: Round ${Gameround}`;
+      gameHistory.append(winHistory);
       boardSCore.textContent = `You win! ${
         humanChoice[0].toUpperCase() + humanChoice.slice(1)
       } Beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`;
@@ -43,6 +48,9 @@ function playGame(humanChoiceClick) {
     };
     const computerwin = () => {
       compScoreUI.textContent = computerScore;
+      const winHistory = document.createElement("pre");
+      winHistory.textContent = `🤖 Picked ${computerChoice}, 👱🏼 Picked ${humanChoice} :${computerChoice} beats ${humanChoice}: Round ${Gameround}`;
+      gameHistory.append(winHistory);
       boardSCore.textContent = `You lose! ${
         computerChoice[0].toUpperCase() + computerChoice.slice(1)
       } Beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`;
@@ -55,6 +63,10 @@ function playGame(humanChoiceClick) {
     };
 
     if (humanChoice == computerChoice) {
+      humanScoreUI.textContent = humanScore;
+      const winHistory = document.createElement("pre");
+      winHistory.textContent = `👱🏼 Picked ${humanChoice}, 🤖 Picked ${computerChoice}  : ${humanChoice} ties with  ${computerChoice}: Round ${Gameround}`;
+      gameHistory.append(winHistory);
       boardSCore.textContent = `It's a tie, you both picked ${computerChoice.toUpperCase()}`;
       console.log("%cit's a tie", "font-size:25px");
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
