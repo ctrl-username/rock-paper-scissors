@@ -21,6 +21,16 @@
             button {
                 margin-top: 10px;
             }
+            h1 {
+                gap: 1 rem;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+            }
+            h1 span {
+                /*flex: 1;*/
+            }
         </style>
     </head>
 
@@ -48,6 +58,19 @@
                     Player 👱🏼
                     <strong>Score: <span id="player-score"> 0</span></strong>
                 </h2>
+            </div>
+            <div
+                class="round-board"
+                style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                "
+            >
+                <h3 class="round">Round 1</h3>
+                <h3>Game History 🎮</h3>
+                <h3>🤖 = rock, 👱🏼 = paper : paper beats rock : round 1</h3>
             </div>
         </div>
 

@@ -18,6 +18,7 @@ function getHumanChoice(roundNumber) {
 function playGame(humanChoiceClick) {
   let humanScore = 0;
   let computerScore = 0;
+  let Gameround = 1;
   // reference to score ui for both computer and player
   let compScoreUI = document.querySelector("#computer-score");
   let humanScoreUI = document.querySelector("#player-score");
@@ -25,6 +26,9 @@ function playGame(humanChoiceClick) {
   let boardSCore = document.querySelector(".board-score");
 
   function playRound(humanChoice, computerChoice) {
+    Gameround++;
+    const roundUI = document.querySelector(".round");
+    roundUI.textContent = `Round: ${Gameround}`;
     const playerwin = () => {
       humanScoreUI.textContent = humanScore;
       boardSCore.textContent = `You win! ${
@@ -75,27 +79,28 @@ function playGame(humanChoiceClick) {
   }
   // if
 
-  for (let round = 1; round <= 1; round++) {
-    const humanSelection = humanChoiceClick;
-    const computerSelection = getComputerChoice();
-    console.log(`%c Round! ${round}`, "font-size:25px");
-    console.log(
-      `%c🧑:${humanSelection},🤖:${computerSelection}`,
-      "font-size:25px;color:gold",
-    );
-    playRound(humanSelection, computerSelection);
-  }
-  console.log(
-    `%c Game over! You Scored ${humanScore} and Computer Scored ${computerScore},
-    ${
-      humanScore > computerScore
-        ? "You win"
-        : computerScore > humanScore
-          ? "You lose"
-          : "It's a Tie"
-    }`,
-    "font-size:25px",
-  );
+  // for (let round = 1; round <= 5; round++) {
+  //   const humanSelection = humanChoiceClick;
+  //   const computerSelection = getComputerChoice();
+
+  //   console.log(`%c Round! ${round}`, "font-size:25px");
+  //   console.log(
+  //     `%c🧑:${humanSelection},🤖:${computerSelection}`,
+  //     "font-size:25px;color:gold",
+  //   );
+  //   playRound(humanSelection, computerSelection);
+  // }
+  // console.log(
+  //   `%c Game over! You Scored ${humanScore} and Computer Scored ${computerScore},
+  //   ${
+  //     humanScore > computerScore
+  //       ? "You win"
+  //       : computerScore > humanScore
+  //         ? "You lose"
+  //         : "It's a Tie"
+  //   }`,
+  //   "font-size:25px",
+  // );
 
   // reference to player buttons
   const rockP = document.querySelector(".rock");
