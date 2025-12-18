@@ -90,6 +90,34 @@ function playGame(humanChoiceClick) {
     }
   }
   // if
+  //
+  function winner() {
+    if (computerScore > 4) {
+      return "computerWin";
+    } else if (humanScore > 4) {
+      return "humanWin";
+    }
+    return "winner is yet to be determined";
+  }
+
+  function endGame() {
+    let playerButtons = document.querySelector(".player-buttons");
+    const replayGame = document.createTextNode(
+      "To play again. Refresh your browser",
+    );
+
+    if (winner() === "computerWin") {
+      boardSCore.textContent = `Game Over 🏁 : Computer Win in ${Gameround} rounds `;
+      boardSCore.append(replayGame);
+      playerButtons.remove();
+
+      console.log("computer wins");
+    } else if (winner() === "humanWin") {
+      boardSCore.textContent = `Game Over 🏁 : You Win in ${Gameround} rounds `;
+      boardSCore.append(replayGame);
+      playerButtons.remove();
+    }
+  }
 
   // for (let round = 1; round <= 5; round++) {
   //   const humanSelection = humanChoiceClick;
@@ -126,15 +154,18 @@ function playGame(humanChoiceClick) {
   function Rock() {
     // console.log("rock", getComputerChoice());
     playRound("rock", getComputerChoice());
+    endGame();
   }
   function Paper() {
     // console.log("paper", getComputerChoice());
 
     playRound("paper", getComputerChoice());
+    endGame();
   }
   function Scissors() {
     // console.log("scissors", getComputerChoice());
     playRound("scissors", getComputerChoice());
+    endGame();
   }
 }
 
