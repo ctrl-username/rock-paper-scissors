@@ -23,20 +23,25 @@ function playGame(humanChoiceClick) {
   let humanScoreUI = document.querySelector("#player-score");
 
   function playRound(humanChoice, computerChoice) {
-    const playerwin = () =>
+    const playerwin = () => {
+      humanScoreUI.textContent = humanScore;
       console.log(
         `%cYou win! ${
           humanChoice[0].toUpperCase() + humanChoice.slice(1)
         } Beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`,
         "font-size:25px",
       );
-    const computerwin = () =>
+    };
+    const computerwin = () => {
+      compScoreUI.textContent = computerScore;
+
       console.log(
         `%cYou lose! ${
           computerChoice[0].toUpperCase() + computerChoice.slice(1)
         } Beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`,
         "font-size:25px",
       );
+    };
 
     if (humanChoice == computerChoice) {
       console.log("%cit's a tie", "font-size:25px");
@@ -83,9 +88,6 @@ function playGame(humanChoiceClick) {
     }`,
     "font-size:25px",
   );
-
-  compScoreUI.textContent = computerScore;
-  humanScoreUI.textContent = humanScore;
 
   // reference to player buttons
   const rockP = document.querySelector(".rock");
