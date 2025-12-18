@@ -21,10 +21,15 @@ function playGame(humanChoiceClick) {
   // reference to score ui for both computer and player
   let compScoreUI = document.querySelector("#computer-score");
   let humanScoreUI = document.querySelector("#player-score");
+  // reference to board score ui
+  let boardSCore = document.querySelector(".board-score");
 
   function playRound(humanChoice, computerChoice) {
     const playerwin = () => {
       humanScoreUI.textContent = humanScore;
+      boardSCore.textContent = `You win! ${
+        humanChoice[0].toUpperCase() + humanChoice.slice(1)
+      } Beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`;
       console.log(
         `%cYou win! ${
           humanChoice[0].toUpperCase() + humanChoice.slice(1)
@@ -34,7 +39,9 @@ function playGame(humanChoiceClick) {
     };
     const computerwin = () => {
       compScoreUI.textContent = computerScore;
-
+      boardSCore.textContent = `You lose! ${
+        computerChoice[0].toUpperCase() + computerChoice.slice(1)
+      } Beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`;
       console.log(
         `%cYou lose! ${
           computerChoice[0].toUpperCase() + computerChoice.slice(1)
@@ -44,6 +51,7 @@ function playGame(humanChoiceClick) {
     };
 
     if (humanChoice == computerChoice) {
+      boardSCore.textContent = `It's a tie, you both picked ${computerChoice.toUpperCase()}`;
       console.log("%cit's a tie", "font-size:25px");
     } else if (humanChoice === "rock" && computerChoice === "scissors") {
       humanScore++;
